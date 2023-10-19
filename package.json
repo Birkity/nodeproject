@@ -5,12 +5,20 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"node app.js"
-
+    "start": "node app.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2"
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "mongodb": "^6.1.0"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-inject": "^5.0.5",
+    "gulp-jshint": "^2.1.0",
+    "gulp-nodemon": "^2.5.0",
+    "wiredep": "^4.0.0"
   }
 }
