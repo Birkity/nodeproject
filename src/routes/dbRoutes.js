@@ -25,7 +25,7 @@ var eventData = [
 
 dbRouter.route('/AddEventData')
 .get(function(req,res){
-       var url = 'mongodb://127.0.0.1:27017/mongo';    
+       var url = 'mongodb://127.0.0.1:27017/eventApp';    
        mongodb.connect(url, function(err, db){
        var collection = db.collection('events');
        collection.insertMany(eventData, function(err, results){

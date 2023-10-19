@@ -26,6 +26,10 @@ var eventData = [
 
 eventRouter.route('/')
 .get(function(req,res){
+    var url = 'mongodb://127.0.0.1:27017/eventApp';    
+    mongodb.connect(url, function(err, db){
+    var collection = db.collection('events');
+   collection.find({}).toArray(function(err, results){
     res.render('events', {
         list: ['first event', '2nd event', '3rd event'],
         nav: [{Link : 'Services' , Text: 'Services'}, 
@@ -35,10 +39,12 @@ eventRouter.route('/')
         {Link: 'Contact', Text: 'Contact' },
         {Link: 'Events', Text: 'Events'}
     ],
-     events: eventData
+     events: results
 
     });
-});
+   });
+    });
+ });
 
 eventRouter.route('/:id')
 .get(function(req,res){
