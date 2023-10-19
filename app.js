@@ -1,9 +1,9 @@
 var express = require('express'); //imports the Express.js module using Node.js's require function.
 var app = express(); //creates an instance of an Express application
-var mongoClient = require('mongodb').MongoClient;
 
 var port = process.env.PORT || 3000; //sets the port number that the server will listen on
 var eventRouter = require('./src/routes/eventRoutes');
+var dbRouter = require('./src/routes/dbRoutes');
 app.use(express.static('public'));
 app.use(express.static('src/views'));
 app.use(express.static("bower_components"));
@@ -13,6 +13,7 @@ app.set('view engine', 'ejs');
 
 
 app.use('/Events', eventRouter)
+app.use('/Db', dbRouter);
 
 app.get('/', function(req,res){
     //res.send("Aloha World!");
